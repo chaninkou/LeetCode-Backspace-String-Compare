@@ -2,8 +2,8 @@ package backspaceString;
 
 public class Main {
 	public static void main(String[] args){
-		String S = "a##b#c";
-		String T = "a#b#c";
+		String S = "a#a#bc";
+		String T = "a#bc";
 		
 		System.out.println("String S: " + S + " String T: " + T);
 		
