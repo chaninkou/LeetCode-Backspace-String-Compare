@@ -1,41 +1,48 @@
 package backspaceString;
 
 public class BackspaceStringCompareSolution {
-	 public boolean backspaceCompare(String S, String T) {
-	        int i = S.length() - 1;
-	        
-	        int j = T.length() - 1;
-	        
-	        while(true){
-	        	// The if statement check if the last element of S and T is the same, if it's just go to the left
-	            if(i >= 0 && j >= 0 && S.charAt(i) == T.charAt(j)){
-	                i--;
-	                j--;
-	                System.out.println("i : " + i);
-	                System.out.println("j : " + j);
-	            }else{
-	                return i == j;
-	            }
-	        	
-	            // String S
-	            for(int back = 0; i >= 0 && (back > 0 || S.charAt(i) == '#'); i--){
-	                if(S.charAt(i) == '#'){
-	                    back += 1;
-	                }else{
-	                    back += -1;
-	                }
-	                System.out.println("back i : " + back);
-	            }
-	            
-	            // String T
-	            for(int back = 0; j >= 0 && (back > 0 || T.charAt(j) == '#'); j--){
-	                if(T.charAt(j) == '#'){
-	                    back += 1;
-	                }else{
-	                    back += -1;
-	                }
-	                System.out.println("back j : " + back);
-	            }
-	        }
-	    }	
+	public boolean backspaceCompare(String S, String T) {
+		// Total index of String S
+		int i = S.length() - 1;
+
+		// Total index of String T
+		int j = T.length() - 1;
+
+		// When it doesn't return anything, compare again
+		while (true) {
+			// Checking for # in last element of String S, and then continue the
+			// loop
+			for (int backspaceCount = 0; i >= 0 && (backspaceCount > 0 || S.charAt(i) == '#'); i--) {
+				// Increase the amount of backspace by 1 if current is #
+				if (S.charAt(i) == '#') {
+					backspaceCount += 1;
+				} else { // else, decrease the amount of backspace
+					backspaceCount -= 1;
+				}
+			}
+
+			// Checking for # in last element of String T, and then continue the
+			// loop
+			for (int backspaceCount = 0; j >= 0 && (backspaceCount > 0 || T.charAt(j) == '#'); j--) {
+				// Increase the amount of backspace by 1 if current is #
+				if (T.charAt(j) == '#') {
+					backspaceCount += 1;
+				} else { // else, decrease the amount of backspace
+					backspaceCount -= 1;
+				}
+			}
+
+			// Checking if the last element is the same when i and j is both
+			// positive
+			if (i >= 0 && j >= 0 && S.charAt(i) == T.charAt(j)) {
+				i--;
+				j--;
+			} else {
+				// Return true or false depend if they are still at the same
+				// index or not
+				return i == j;
+			}
+
+		}
+	}
 }
