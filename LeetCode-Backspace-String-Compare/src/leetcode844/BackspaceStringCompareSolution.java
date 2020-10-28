@@ -1,7 +1,7 @@
-package backspaceString;
+package leetcode844;
 
 public class BackspaceStringCompareSolution {
-	public boolean backspaceCompare(String S, String T) {
+    public boolean backspaceCompare(String S, String T) {
 		// Total index of String S
 		int i = S.length() - 1;
 
@@ -38,11 +38,9 @@ public class BackspaceStringCompareSolution {
 				i--;
 				j--;
 			} else {
-				// Return true or false depend if they are still at the same
-				// index or not
-				return i == j;
+				break;
 			}
-
 		}
+        return i == -1 && j == -1;
 	}
 }
