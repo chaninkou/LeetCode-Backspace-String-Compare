@@ -8,10 +8,8 @@ public class BackspaceStringCompareSolution {
 		// Total index of String T
 		int j = T.length() - 1;
 
-		// When it doesn't return anything, compare again
 		while (true) {
-			// Checking for # in last element of String S, and then continue the
-			// loop
+			// Delete whenever there is # in the string, and update index after
 			for (int backspaceCount = 0; i >= 0 && (backspaceCount > 0 || S.charAt(i) == '#'); i--) {
 				// Increase the amount of backspace by 1 if current is #
 				if (S.charAt(i) == '#') {
@@ -21,8 +19,7 @@ public class BackspaceStringCompareSolution {
 				}
 			}
 
-			// Checking for # in last element of String T, and then continue the
-			// loop
+			// Delete whenever there is # in the string, and update index after
 			for (int backspaceCount = 0; j >= 0 && (backspaceCount > 0 || T.charAt(j) == '#'); j--) {
 				// Increase the amount of backspace by 1 if current is #
 				if (T.charAt(j) == '#') {
@@ -32,8 +29,7 @@ public class BackspaceStringCompareSolution {
 				}
 			}
 
-			// Checking if the last element is the same when i and j is both
-			// positive
+			// After deleting due to #, if not same, break out of loop
 			if (i >= 0 && j >= 0 && S.charAt(i) == T.charAt(j)) {
 				i--;
 				j--;
