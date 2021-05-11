@@ -7,7 +7,7 @@ public class BackspaceStringCompareSolution {
 		int j = T.length() - 1;
 
 		while (true) {
-			// Delete whenever there is # in the string, and update index after
+			// Delete whenever there is # in the string, and update index
 			for (int backspaceCount = 0; i >= 0 && (backspaceCount > 0 || S.charAt(i) == '#'); i--) {
 				// Increase the amount of backspace by 1 if current is #
 				if (S.charAt(i) == '#') {
