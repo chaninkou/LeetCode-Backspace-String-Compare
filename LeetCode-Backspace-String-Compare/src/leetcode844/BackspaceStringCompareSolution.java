@@ -32,7 +32,7 @@ public class BackspaceStringCompareSolution {
 				i--;
 				j--;
 			} else {
-				break;
+				break; // End loop
 			}
 		}
         return i == -1 && j == -1;
